@@ -45,6 +45,11 @@ window.onload = function () {
         conn.onerror = function(evt) {
             alert("ws error")
         }
+        if (conn) {
+            conn.send("测试成功");
+        } else {
+            alert("no conn")
+        }
     } else {
         var item = document.createElement("div");
         item.innerHTML = "<b>Your browser does not support WebSockets.</b>";
