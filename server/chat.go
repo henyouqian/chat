@@ -167,6 +167,9 @@ func (c *Client) writePump() {
 
 // serveWs handles websocket requests from the peer.
 func serveWs(hub *Hub, w http.ResponseWriter, r *http.Request) {
+	origin := r.Header.Get("Origin")
+	w.Header().Set("Access-Control-Allow-Origin", origin)
+
 	conn, err := upgrader.Upgrade(w, r, nil)
 	if err != nil {
 		log.Println(err)
