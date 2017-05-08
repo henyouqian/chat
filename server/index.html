@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-<meta name="viewport" content="width=640, user-scalable=no" id="metaViewport">
+
 <head>
+<meta name="viewport" content="width=240, user-scalable=no" id="metaViewport">
 <title>Chat Example</title>
 <script type="text/javascript">
 window.onload = function () {
@@ -41,6 +42,9 @@ window.onload = function () {
                 appendLog(item);
             }
         };
+        conn.onerror = function(evt) {
+            alert("ws error")
+        }
     } else {
         var item = document.createElement("div");
         item.innerHTML = "<b>Your browser does not support WebSockets.</b>";
